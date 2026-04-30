@@ -56,8 +56,8 @@ def call_gemini_with_retry(prompt, system_instruction):
 def load_reference_data():
     try:
         # Cargamos los archivos proporcionados por el usuario
-        base_datos = pd.read_csv('base.csv', encoding='latin-1', sep=';')
-        instrucciones = pd.read_csv('base.csv', encoding='latin-1', sep=';')
+        base_datos = pd.read_csv('base.csv', encoding='latin-1', sep=';', on_bad_lines='skip')
+        instrucciones = pd.read_csv('base.csv', encoding='latin-1', sep=';', on_bad_lines='skip')
         return base_datos, instrucciones
     except Exception as e:
         st.error(f"Error al cargar archivos de referencia: {e}")
